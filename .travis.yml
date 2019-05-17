@@ -1,5 +1,6 @@
 language: objective-c
 osx_image: xcode10.2
 
-xcode_scheme: TestCodecov
-xcode_destination: platform=iOS Simulator,name=iPhone X,OS=12.2
+jobs:
+  include:
+    - script: xcodebuild clean build test -project TestCodecov.xcodeproj -scheme TestCodecov -destination "platform=iOS Simulator,name=iPhone X,OS=12.2" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
