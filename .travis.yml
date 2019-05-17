@@ -1,6 +1,9 @@
 language: objective-c
 osx_image: xcode10.2
 
+install:
+  - gem install xcpretty
+
 jobs:
   include:
-    - script: xcodebuild clean build test -project TestCodecov.xcodeproj -scheme TestCodecov -destination "platform=iOS Simulator,name=iPhone X,OS=12.2" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+    - script: xcodebuild clean build test -project TestCodecov.xcodeproj -scheme TestCodecov -destination "platform=iOS Simulator,name=iPhone X,OS=12.2" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty -c
