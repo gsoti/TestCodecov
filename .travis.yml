@@ -6,4 +6,5 @@ install:
 
 jobs:
   include:
-    - script: xcodebuild clean build test -project TestCodecov.xcodeproj -scheme TestCodecov -destination "platform=iOS Simulator,name=iPhone X,OS=12.2" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty -c
+    - script: xcodebuild clean build test -project TestCodecov.xcodeproj -scheme TestCodecov -destination "platform=iOS Simulator,name=iPhone X,OS=12.2" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO -enableCodeCoverage YES | xcpretty -c
+      after_script: bash <(curl -s https://codecov.io/bash) -t 4df96d0e-47a7-4982-ada0-77035c04b5f1
