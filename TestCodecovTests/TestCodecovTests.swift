@@ -20,8 +20,8 @@ class TestCodecovTests: XCTestCase {
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertEqual(TestCodecov.add(a: 1, b: 2), 3)
+        XCTAssertEqual(TestCodecov.delete(a: 1, from: 2), 1)
     }
 
     func testPerformanceExample() {
